@@ -5,8 +5,7 @@ from pprint import pprint
 
 def main():
     bitcoins = get_number_bitcoins()
-    api_response = get_bitcoin_api_response()
-    result = calculate_USD(bitcoins, api_response)
+    result = calculate_USD(bitcoins)
     print_results(bitcoins, result)
 
 
@@ -21,7 +20,8 @@ def get_bitcoin_api_response():
     return response
 
 
-def calculate_USD(bitcoin, response):
+def calculate_USD(bitcoin):
+    response = get_bitcoin_api_response()
     bitcoin_price_USD = response['bpi']['USD']['rate_float']
     result = bitcoin * bitcoin_price_USD
     return result
