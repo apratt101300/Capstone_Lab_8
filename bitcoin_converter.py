@@ -23,12 +23,13 @@ def get_bitcoin_api_response():
 def calculate_USD(bitcoin):
     response = get_bitcoin_api_response()
     bitcoin_price_USD = response['bpi']['USD']['rate_float']
+    print(bitcoin_price_USD)
     result = bitcoin * bitcoin_price_USD
     return result
 
 
 def print_results(bitcoins, result):
-    txt = "{bitcoins} Bitcoins is {result:,.2f} USD."
+    txt = "{bitcoins} Bitcoins is {result:.2f} USD."
     print(txt.format(bitcoins = bitcoins, result = result))
 
 
